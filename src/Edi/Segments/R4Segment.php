@@ -17,8 +17,8 @@ class R4Segment extends Segment
         3 => 'location_identifier', //Code which identifies a specific location
         4 => 'port_name', //Free-form name for the place at which an offshore carrier originates or terminates (by transshipment or otherwise) its actual ocean carriage of property
         5 => 'country_code',
-        6 => '',
-        7 => '',
+        6 => 'terminal_name',
+        7 => 'pier_number',
         8 => 'state_or_province_code', //Code (Standard State/Province) as defined by appropriate government agency
     ];
 }

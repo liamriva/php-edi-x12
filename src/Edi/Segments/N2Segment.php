@@ -12,6 +12,7 @@ class N2Segment extends Segment
 {
     public $segmentMapping = [
         0 => parent::EDI_QUALIFIER_KEY, //Additional Name Information
-        1 => 'name' //Free-form name
+        1 => 'name', //Free-form name
+        2 => 'name_2' //Free-form name
     ];
 }

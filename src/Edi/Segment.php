@@ -36,7 +36,12 @@ class Segment implements SegmentInterface
         foreach ($segment as $key => $value) {
             if (isset($this->segmentMapping[$key]) && $this->segmentMapping[$key]) {
                 $content[$this->segmentMapping[$key]] = $value;
+                unset($segment[$key]);
             }
+        }
+        if(!empty($segment)){
+            //Putting the extra content in the extra key so I can see what is missing
+            $content['extra'] = $segment;
         }
         return $content;
     }
