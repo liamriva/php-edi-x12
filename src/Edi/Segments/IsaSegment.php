@@ -19,9 +19,9 @@ class IsaSegment extends Segment
         2 => 'authorization_information',
         3 => 'security_information_qualifier', //Code 00 indicates that no security information present in I01.
         4 => 'security_information',
-        5 => 'interchange_id_qualifier',
+        5 => 'interchange_sender_id_qualifier',
         6 => 'interchange_sender_id',
-        7 => 'interchange_id_qualifier',
+        7 => 'interchange_receiver_id_qualifier',
         8 => 'interchange_receiver_id',
         9 => 'interchange_date',
         10 => 'interchange_time',
