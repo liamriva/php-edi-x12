@@ -1,12 +1,12 @@
 <?php
 
-namespace Mrstroz\Edi;
+namespace BrodSolutions\Edi;
 
-use Mrstroz\Edi;
+use BrodSolutions\Edi;
 
 /**
  * Class SegmentParser
- * @package Mrstroz\Parse
+ * @package BrodSolutions\Parse
  */
 class SegmentParser
 {

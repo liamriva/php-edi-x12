@@ -1,5 +1,5 @@
 {
-  "name": "mrstroz/php-edi-x12",
+  "name": "brodsolutions/php-edi-x12",
   "description": "A framework for parsing and generating EDI X12 documents in PHP. Library built on top of aonach/php-edi and PopeFelix/php-edi, rebuild later by INWAVE Team",
   "keywords": [
     "library",
@@ -17,6 +17,10 @@
     {
       "name": "Inwave Dev Team",
       "email": "info@inwave.pl"
+    },
+    {
+      "name": "Tyler Keown",
+      "email": "tyler@brodsolutions.com"
     }
   ],
   "require": {
@@ -27,7 +31,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Mrstroz\\": "src/"
+      "BrodSolutions\\": "src/"
     }
   }
 }

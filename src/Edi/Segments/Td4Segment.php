@@ -1,12 +1,12 @@
 <?php
 
-namespace Mrstroz\Edi\Segments;
+namespace BrodSolutions\Edi\Segments;
 
-use Mrstroz\Edi\Segment;
+use BrodSolutions\Edi\Segment;
 
 /**
  * Class Td4Segment
- * @package Mrstroz\Edi\Segments
+ * @package BrodSolutions\Edi\Segments
  */
 class Td4Segment extends Segment
 {

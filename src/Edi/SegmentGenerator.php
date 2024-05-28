@@ -1,13 +1,13 @@
 <?php
 
-namespace Mrstroz\Edi;
+namespace BrodSolutions\Edi;
 
 
-use Mrstroz\Edi;
+use BrodSolutions\Edi;
 
 /**
  * Class SegmentGenerator
- * @package Mrstroz\Edi
+ * @package BrodSolutions\Edi
  */
 class SegmentGenerator
 {

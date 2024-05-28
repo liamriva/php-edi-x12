@@ -1,10 +1,10 @@
 <?php
 
-namespace Mrstroz\Edi;
+namespace BrodSolutions\Edi;
 
 /**
  * Class Document
- * @package Mrstroz\Parse
+ * @package BrodSolutions\Parse
  */
 class Document
 {

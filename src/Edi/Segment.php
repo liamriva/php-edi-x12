@@ -1,10 +1,10 @@
 <?php
 
-namespace Mrstroz\Edi;
+namespace BrodSolutions\Edi;
 
 /**
  * Class Segment
- * @package Mrstroz\Edi
+ * @package BrodSolutions\Edi
  */
 class Segment implements SegmentInterface
 {

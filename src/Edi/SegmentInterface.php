@@ -1,11 +1,11 @@
 <?php
 
-namespace Mrstroz\Edi;
+namespace BrodSolutions\Edi;
 
 
 /**
  * Interface SegmentInterface
- * @package Mrstroz\Edi\Segments
+ * @package BrodSolutions\Edi\Segments
  */
 interface SegmentInterface
 {

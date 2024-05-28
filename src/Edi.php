@@ -1,61 +1,59 @@
 <?php
 
-namespace Mrstroz;
+namespace BrodSolutions;
 
-use Mrstroz\Edi\Document;
+use BrodSolutions\Edi\Document;
 
 /**
  * A class to parse ASC X12 EDI documents
  */
-class Edi
-{
+class Edi {
 
   public const SEGMENT_TERMINATOR_POSITION = 105;
   public const SUBELEMENT_SEPARATOR_POSITION = 104;
   public const ELEMENT_SEPARATOR_POSITION = 3;
 
   public static $segmentMapping = [
-    'AMT' => 'Mrstroz\Edi\Segments\AmtSegment',
-    'B4' => 'Mrstroz\Edi\Segments\B4Segment',
-    'BEG' => 'Mrstroz\Edi\Segments\BegSegment',
-    'CTT' => 'Mrstroz\Edi\Segments\CttSegment',
-    'CUR' => 'Mrstroz\Edi\Segments\CurSegment',
-    'DTM' => 'Mrstroz\Edi\Segments\DtmSegment',
-    'FOB' => 'Mrstroz\Edi\Segments\FobSegment',
-    'GE' => 'Mrstroz\Edi\Segments\GeSegment',
-    'GS' => 'Mrstroz\Edi\Segments\GsSegment',
-    'IEA' => 'Mrstroz\Edi\Segments\IeaSegment',
-    'ISA' => 'Mrstroz\Edi\Segments\IsaSegment',
-    'ITD' => 'Mrstroz\Edi\Segments\ItdSegment',
-    'MSG' => 'Mrstroz\Edi\Segments\MsgSegment',
-    'N1' => 'Mrstroz\Edi\Segments\N1Segment',
-    'N2' => 'Mrstroz\Edi\Segments\N2Segment',
-    'N3' => 'Mrstroz\Edi\Segments\N3Segment',
-    'N4' => 'Mrstroz\Edi\Segments\N4Segment',
-    'N9' => 'Mrstroz\Edi\Segments\N9Segment',
-    'PER' => 'Mrstroz\Edi\Segments\PerSegment',
-    'PID' => 'Mrstroz\Edi\Segments\PidSegment',
-    'PO1' => 'Mrstroz\Edi\Segments\Po1Segment',
-    'PO4' => 'Mrstroz\Edi\Segments\Po4Segment',
-    'Q2' => 'Mrstroz\Edi\Segments\Q2Segment',
-    'R4' => 'Mrstroz\Edi\Segments\R4Segment',
-    'REF' => 'Mrstroz\Edi\Segments\RefSegment',
-    'SAC' => 'Mrstroz\Edi\Segments\SacSegment',
-    'SE' => 'Mrstroz\Edi\Segments\SeSegment',
-    'ST' => 'Mrstroz\Edi\Segments\StSegment',
-    'TC2' => 'Mrstroz\Edi\Segments\Tc2Segment',
-    'TD1' => 'Mrstroz\Edi\Segments\Td1Segment',
-    'TD4' => 'Mrstroz\Edi\Segments\Td4Segment',
-    'TD5' => 'Mrstroz\Edi\Segments\Td5Segment',
-    'MTX' => 'Mrstroz\Edi\Segments\MtxSegment',
+    'AMT' => 'BrodSolutions\Edi\Segments\AmtSegment',
+    'B4' => 'BrodSolutions\Edi\Segments\B4Segment',
+    'BEG' => 'BrodSolutions\Edi\Segments\BegSegment',
+    'CTT' => 'BrodSolutions\Edi\Segments\CttSegment',
+    'CUR' => 'BrodSolutions\Edi\Segments\CurSegment',
+    'DTM' => 'BrodSolutions\Edi\Segments\DtmSegment',
+    'FOB' => 'BrodSolutions\Edi\Segments\FobSegment',
+    'GE' => 'BrodSolutions\Edi\Segments\GeSegment',
+    'GS' => 'BrodSolutions\Edi\Segments\GsSegment',
+    'IEA' => 'BrodSolutions\Edi\Segments\IeaSegment',
+    'ISA' => 'BrodSolutions\Edi\Segments\IsaSegment',
+    'ITD' => 'BrodSolutions\Edi\Segments\ItdSegment',
+    'MSG' => 'BrodSolutions\Edi\Segments\MsgSegment',
+    'N1' => 'BrodSolutions\Edi\Segments\N1Segment',
+    'N2' => 'BrodSolutions\Edi\Segments\N2Segment',
+    'N3' => 'BrodSolutions\Edi\Segments\N3Segment',
+    'N4' => 'BrodSolutions\Edi\Segments\N4Segment',
+    'N9' => 'BrodSolutions\Edi\Segments\N9Segment',
+    'PER' => 'BrodSolutions\Edi\Segments\PerSegment',
+    'PID' => 'BrodSolutions\Edi\Segments\PidSegment',
+    'PO1' => 'BrodSolutions\Edi\Segments\Po1Segment',
+    'PO4' => 'BrodSolutions\Edi\Segments\Po4Segment',
+    'Q2' => 'BrodSolutions\Edi\Segments\Q2Segment',
+    'R4' => 'BrodSolutions\Edi\Segments\R4Segment',
+    'REF' => 'BrodSolutions\Edi\Segments\RefSegment',
+    'SAC' => 'BrodSolutions\Edi\Segments\SacSegment',
+    'SE' => 'BrodSolutions\Edi\Segments\SeSegment',
+    'ST' => 'BrodSolutions\Edi\Segments\StSegment',
+    'TC2' => 'BrodSolutions\Edi\Segments\Tc2Segment',
+    'TD1' => 'BrodSolutions\Edi\Segments\Td1Segment',
+    'TD4' => 'BrodSolutions\Edi\Segments\Td4Segment',
+    'TD5' => 'BrodSolutions\Edi\Segments\Td5Segment',
+    'MTX' => 'BrodSolutions\Edi\Segments\MtxSegment',
   ];
 
   /**
    * Parse an EDI document. Data will be returned as an array of instances of
    * EDI\Document. Document should contain exactly one ISA/IEA envelope.
    */
-  public static function parse($res)
-  {
+  public static function parse($res) {
     $string = '';
     $segments = array();
 
