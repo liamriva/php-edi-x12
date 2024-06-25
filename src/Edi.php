@@ -17,6 +17,7 @@ class Edi {
     'AMT' => 'BrodSolutions\Edi\Segments\AmtSegment',
     'B4' => 'BrodSolutions\Edi\Segments\B4Segment',
     'BEG' => 'BrodSolutions\Edi\Segments\BegSegment',
+    'CSH' => 'BrodSolutions\Edi\Segments\CshSegment',
     'CTT' => 'BrodSolutions\Edi\Segments\CttSegment',
     'CUR' => 'BrodSolutions\Edi\Segments\CurSegment',
     'DTM' => 'BrodSolutions\Edi\Segments\DtmSegment',
