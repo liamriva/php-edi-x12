@@ -18,5 +18,8 @@ class PerSegment extends Segment
         4 => 'contact_number_1', //Communication Number
         5 => 'contact_communication_qualifier_2', //Communication Number Qualifier
         6 => 'contact_number_2', //Communication Number
+        7 => 'contact_communication_qualifier_3', //Communication Number Qualifier
+        8 => 'contact_number_3', //Communication Number
+        9 => 'reference',
     ];
 }

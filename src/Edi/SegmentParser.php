@@ -35,17 +35,28 @@ class SegmentParser
         $formatted = ['header' => [], 'payload' => [], 'footer' => [], 'extra' => []];
         $searching = true;
 
-        //Control header
-        $isa = self::getParsedSegment('ISA', $parsed);
-        if($isa){
-            $formatted['header']['ISA'] = $isa['item'];
-            unset($parsed[$isa['key']]);
+        //Headers
+        //Header segments (ISA, GS)
+        $sections = ['ISA', 'GS'];
+        foreach($sections as $section){
+            foreach($parsed as $key => $item) {
+                if($item[Segment::EDI_QUALIFIER_KEY] === $section){
+                    $formatted['header'][$section] = $item;
+                    unset($parsed[$key]);
+                }
+            }
         }
-        //Functional group header
-        $gs = self::getParsedSegment('GS', $parsed);
-        if($gs){
-            $formatted['header']['GS'] = $gs['item'];
-            unset($parsed[$gs['key']]);
+
+        //Footer
+        //Footer segments (GE, IEA)
+        $sections = ['GE', 'IEA'];
+        foreach($sections as $section){
+            foreach($parsed as $key => $item) {
+                if($item[Segment::EDI_QUALIFIER_KEY] === $section){
+                    $formatted['footer'][$section] = $item;
+                    unset($parsed[$key]);
+                }
+            }
         }
 
         while($searching){
@@ -172,17 +183,6 @@ class SegmentParser
                 //Add the section to the formatted array
                 $formatted['payload'][] = $section;
             }else $searching = false;
-        }
-
-        //Footer segments (GE, IEA)
-        $sections = ['GE', 'IEA'];
-        foreach($sections as $section){
-            foreach($parsed as $key => $item) {
-                if($item[Segment::EDI_QUALIFIER_KEY] === $section){
-                    $formatted['footer'][$section] = $item;
-                    unset($parsed[$key]);
-                }
-            }
         }
 
         //Add any remaining segments to the formatted array
