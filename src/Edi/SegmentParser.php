@@ -87,8 +87,8 @@ class SegmentParser
                 //Sales requirement
                 $csh = self::getParsedSegment('CSH', $parsed);
                 if($csh){
-                    $section['CSH'] = $cur['item'];
-                    unset($parsed[$cur['key']]);
+                    $section['CSH'] = $csh['item'];
+                    unset($parsed[$csh['key']]);
                 }
 
                 //SAC Loop
@@ -232,8 +232,14 @@ class SegmentParser
                                 case 'PO4':
                                 case 'DMT':
                                 case 'TD5':
+                                case 'CTB':
+                                case 'SLN':
+                                case 'MSG':
+                                    if($childSegment === 'MSG' && isset($additionalItems['SLN'])){
+                                        //Part of the SLN loop
+                                        $additionalItems['SLN'][] = $parsed[$additionalKey];
+                                    }else $additionalItems[$childSegment][] = $parsed[$additionalKey];
                                     //Could be more than one PID, ATM, or PO4
-                                    $additionalItems[$childSegment][] = $parsed[$additionalKey];
                                     unset($parsed[$additionalKey]);
                                     $additionalKey++;
                                 break;
