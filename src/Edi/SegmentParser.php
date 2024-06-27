@@ -214,7 +214,10 @@ class SegmentParser
                         while(isset($parsed[$additionalKey])){
                             $segmentKey = $parsed[$additionalKey][Segment::EDI_QUALIFIER_KEY];
                             if((str_starts_with($segmentKey, 'N') && !str_ends_with($segmentKey, '1')) || $segmentKey === 'PER') {
-                                $additionalItems[$segmentKey] = $parsed[$additionalKey];
+                                if($segmentKey === 'PER') {//Per segment has multiple items
+                                  if(!isset($additionalItems[$segmentKey])) $additionalItems[$segmentKey] = [];
+                                  $additionalItems[$segmentKey][] = $parsed[$additionalKey];
+                                }else $additionalItems[$segmentKey] = $parsed[$additionalKey];
                                 unset($parsed[$additionalKey]);
                                 $additionalKey++;
                             }else break;
