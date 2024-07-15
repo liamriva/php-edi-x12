@@ -136,7 +136,7 @@ class SegmentParser
                 while($n9 = self::getParsedSegment('N9', $parsed)){
                     if(!empty($n9['additionalItems'])){
                         $section['N9'][] = [$n9['item'], $n9['additionalItems']];
-                    }else $section['N9'][] = $n9['item'];
+                    }else $section['N9'][] = [$n9['item']];
                     unset($parsed[$n9['key']]);
                 }
 
@@ -145,7 +145,7 @@ class SegmentParser
                 while($n1 = self::getParsedSegment('N1', $parsed)){
                     if(!empty($n1['additionalItems'])){
                         $section['N1'][] = [$n1['item'], $n1['additionalItems']];
-                    }else $section['N1'][] = $n1['item'];
+                    }else $section['N1'][] = [$n1['item']];
                     unset($parsed[$n1['key']]);
                 }
 
@@ -154,7 +154,7 @@ class SegmentParser
                 while($po1 = self::getParsedSegment('PO1', $parsed)){
                     if(!empty($po1['additionalItems'])){
                         $section['PO1'][] = [$po1['item'], $po1['additionalItems']];
-                    }else $section['PO1'][] = $po1['item'];
+                    }else $section['PO1'][] = [$po1['item']];
                     unset($parsed[$po1['key']]);
                 }
 
@@ -163,7 +163,7 @@ class SegmentParser
                 while($ctt = self::getParsedSegment('CTT', $parsed)){
                     if(!empty($ctt['additionalItems'])){
                         $section['CTT'][] = [$ctt['item'], $ctt['additionalItems']];
-                    }else $section['CTT'][] = $ctt['item'];
+                    }else $section['CTT'][] = [$ctt['item']];
                     unset($parsed[$ctt['key']]);
                 }
 
