@@ -18,5 +18,9 @@ class FobSegment extends Segment
         3 => 'description', //Description
         4 => 'transportation_terms_qualifier', //Code identifying the source of the transportation terms
         5 => 'transportation_terms_code', //Code identifying the trade terms which apply to the shipment transportation responsibility
+        6 => 'location_qualifier_2', //Code identifying type of location
+        7 => 'description_2', //Description
+        8 => 'risk_of_loss_code', //Code identifying the party responsible for the risk of loss
+        9 => 'description_3', //Description
     ];
 }
