@@ -16,6 +16,7 @@ class Edi {
   public static $segmentMapping = [
     'AMT' => 'BrodSolutions\Edi\Segments\AmtSegment',
     'B4' => 'BrodSolutions\Edi\Segments\B4Segment',
+    'BCH' => 'BrodSolutions\Edi\Segments\BchSegment',
     'BEG' => 'BrodSolutions\Edi\Segments\BegSegment',
     'CSH' => 'BrodSolutions\Edi\Segments\CshSegment',
     'CTB' => 'BrodSolutions\Edi\Segments\CtbSegment',
@@ -38,6 +39,7 @@ class Edi {
     'PID' => 'BrodSolutions\Edi\Segments\PidSegment',
     'PO1' => 'BrodSolutions\Edi\Segments\Po1Segment',
     'PO4' => 'BrodSolutions\Edi\Segments\Po4Segment',
+    'POC' => 'BrodSolutions\Edi\Segments\PocSegment',
     'Q2' => 'BrodSolutions\Edi\Segments\Q2Segment',
     'R4' => 'BrodSolutions\Edi\Segments\R4Segment',
     'REF' => 'BrodSolutions\Edi\Segments\RefSegment',

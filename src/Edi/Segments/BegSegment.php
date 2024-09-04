@@ -24,6 +24,5 @@ class BegSegment extends Segment
         10 => 'purchase_category',
         11 => 'security_level_code', //Security Level Code - Code indicating the level of security
         12 => 'transaction_type_code', //Transaction Type Code - Code indicating the type of transaction
-
     ];
 }
