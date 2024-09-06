@@ -167,9 +167,9 @@ class SegmentParser
 
                 //POC
                 $section['POC'] = [];
-                while($dtm = self::getParsedSegment('POC', $parsed)){
-                    $section['POC'][] = $dtm['item'];
-                    unset($parsed[$dtm['key']]);
+                while($poc = self::getParsedSegment('POC', $parsed)){
+                    $section['POC'][] = $poc['item'];
+                    unset($parsed[$poc['key']]);
                 }
 
                 //Ctt loop
