@@ -74,6 +74,13 @@ class SegmentParser
                     unset($parsed[$beg['key']]);
                 }
 
+                //BCH
+                $bch = self::getParsedSegment('BCH', $parsed);
+                if($bch){
+                    $section['BCH'] = $bch['item'];
+                    unset($parsed[$bch['key']]);
+                }
+
                 //Currency
                 $cur = self::getParsedSegment('CUR', $parsed);
                 if($cur){
@@ -156,6 +163,13 @@ class SegmentParser
                         $section['PO1'][] = [$po1['item'], $po1['additionalItems']];
                     }else $section['PO1'][] = [$po1['item']];
                     unset($parsed[$po1['key']]);
+                }
+
+                //POC
+                $section['POC'] = [];
+                while($dtm = self::getParsedSegment('POC', $parsed)){
+                    $section['POC'][] = $dtm['item'];
+                    unset($parsed[$dtm['key']]);
                 }
 
                 //Ctt loop
